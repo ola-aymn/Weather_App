@@ -13,7 +13,6 @@ class _WeatherHomePageState extends State<WeatherHomePage> {
   final TextEditingController countryNameController = TextEditingController();
   bool _isLoading = false;
 
-  // Function to map weather condition to an icon
   IconData _getWeatherIcon(String weatherDescription) {
     switch (weatherDescription.toLowerCase()) {
       case 'clear sky':
@@ -35,7 +34,7 @@ class _WeatherHomePageState extends State<WeatherHomePage> {
       case 'mist':
         return WeatherIcons.fog;
       default:
-        return WeatherIcons.thermometer; // Fallback icon
+        return WeatherIcons.thermometer; 
     }
   }
 
@@ -44,7 +43,7 @@ class _WeatherHomePageState extends State<WeatherHomePage> {
       _isLoading = true;
     });
 
-    final apiKey = '36fb09ea1da80f32c92b3174586c9b74'; // Replace with your actual API key
+    final apiKey = '36fb09ea1da80f32c92b3174586c9b74'; 
     final url = 'https://api.openweathermap.org/data/2.5/weather?q=$country&appid=$apiKey&units=metric';
 
     try {
@@ -53,8 +52,8 @@ class _WeatherHomePageState extends State<WeatherHomePage> {
         final data = json.decode(response.body);
         String weatherDescription = data['weather'][0]['description'];
         double temperature = data['main']['temp'];
-        String weatherInfo = '$weatherDescription, ${temperature.toStringAsFixed(1)}°C'; // Format the temperature
-        IconData weatherIcon = _getWeatherIcon(weatherDescription); // Get the icon based on description
+        String weatherInfo = '$weatherDescription, ${temperature.toStringAsFixed(1)}°C'; 
+        IconData weatherIcon = _getWeatherIcon(weatherDescription); 
 
         Navigator.push(
           context,
@@ -62,7 +61,7 @@ class _WeatherHomePageState extends State<WeatherHomePage> {
             builder: (context) => WeatherResultPage(
               weatherInfo: weatherInfo,
               countryName: country,
-              weatherIcon: weatherIcon, // Pass the icon to the result page
+              weatherIcon: weatherIcon, 
             ),
           ),
         );
@@ -112,7 +111,7 @@ class _WeatherHomePageState extends State<WeatherHomePage> {
                     size: 100,
                     color: Colors.white,
                   ),
-                  SizedBox(height: 10), // Reduced space for the title
+                  SizedBox(height: 10), 
                   Text(
                     'Get The Weather',
                     style: TextStyle(
