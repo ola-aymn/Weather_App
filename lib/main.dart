@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'UI/home_page.dart'; // Make sure this import is correct
+import 'UI/home_page.dart';
 
 void main() {
   runApp(MyApp());
@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: WeatherHomePage(), // Set home page here
+      home: WeatherHomePage(), 
     );
   }
 }
